@@ -24,6 +24,18 @@ module Socialization
       @like_model = klass
     end
 
+    def watch_later_model
+      if @watch_later_model
+        @watch_later_model
+      else
+        ::WatchLater
+      end
+    end
+
+    def watch_later_model=(klass)
+      @watch_later_model = klass
+    end
+
     def mention_model
       if @mention_model
         @mention_model

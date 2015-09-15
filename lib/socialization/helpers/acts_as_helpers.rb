@@ -34,6 +34,14 @@ module Socialization
       def acts_as_mentionable(opts = {})
         include Socialization::Mentionable
       end
+
+      def acts_as_watcher(opts = {})
+        include Socialization::Watcher
+      end
+
+      def acts_as_watchable(opts = {})
+        include Socialization::Watchable
+      end
     end
   end
 end
