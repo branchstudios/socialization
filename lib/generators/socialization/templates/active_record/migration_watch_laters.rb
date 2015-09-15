@@ -6,6 +6,7 @@ class CreateWatchLaters < ActiveRecord::Migration
       t.string  :watchable_type
       t.integer :watchable_id
       t.datetime :created_at
+      t.datetime :expire_at
     end
 
     add_index :watch_laters, ["watcher_id", "watcher_type"], :name => "watchers"

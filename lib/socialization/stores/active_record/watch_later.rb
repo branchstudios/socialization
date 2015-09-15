@@ -19,11 +19,12 @@ module Socialization
       }
 
       class << self
-        def watch!(watcher, watchable)
+        def watch!(watcher, watchable, opts = {})
           unless watches?(watcher, watchable)
             self.create! do |watch|
               watch.watcher = watcher
               watch.watchable = watchable
+              watch.expire_at = opts[:expire_at] if opts[:expire_at].class == Time
             end
             update_counter(watcher, watchees_count: +1)
             update_counter(watchable, watchers_count: +1)

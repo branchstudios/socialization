@@ -26,9 +26,9 @@ module Socialization
       #
       # @param [Watchable] watchable the object to be watchd.
       # @return [Boolean]
-      def watch!(watchable)
+      def watch!(watchable, opts = {})
         raise Socialization::ArgumentError, "#{watchable} is not watchable!"  unless watchable.respond_to?(:is_watchable?) && watchable.is_watchable?
-        Socialization.watch_later_model.watch!(self, watchable)
+        Socialization.watch_later_model.watch!(self, watchable, opts)
       end
 
       # Delete a {Watch watch} relationship.
