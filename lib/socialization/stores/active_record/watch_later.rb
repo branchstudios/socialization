@@ -9,12 +9,12 @@ module Socialization
       belongs_to :watchable, :polymorphic => true
 
       scope :watched_by, lambda { |watcher| where(
-        :watcher_type    => watcher.class.table_name.classify,
+        :watcher_type    => watcher.class.name, #watcher.class.table_name.classify,
         :watcher_id      => watcher.id)
       }
 
       scope :watching,   lambda { |watchable| where(
-        :watchable_type => watchable.class.table_name.classify,
+        :watchable_type => watchable.class.name, #watchable.class.table_name.classify,
         :watchable_id   => watchable.id)
       }
 
