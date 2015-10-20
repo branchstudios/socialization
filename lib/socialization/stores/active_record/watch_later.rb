@@ -55,7 +55,7 @@ module Socialization
         def watchers_relation(watchable, klass, opts = {})
           rel = klass.where(:id =>
             self.select(:watcher_id).
-              where(:watcher_type => klass.table_name.classify).
+              where(:watcher_type => klass.name.classify).
               where(:watchable_type => watchable.class.to_s).
               where(:watchable_id => watchable.id)
           )
@@ -81,7 +81,7 @@ module Socialization
         def watchables_relation(watcher, klass, opts = {})
           rel = klass.where(:id =>
             self.select(:watchable_id).
-              where(:watchable_type => klass.table_name.classify).
+              where(:watchable_type => klass.name.classify).
               where(:watcher_type => watcher.class.to_s).
               where(:watcher_id => watcher.id)
           )
