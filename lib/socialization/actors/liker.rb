@@ -26,7 +26,7 @@ module Socialization
       #
       # @param [Likeable] likeable the object to be liked.
       # @return [Boolean]
-      def like!(likeable)
+      def like!(likeable, opts = {})
         raise Socialization::ArgumentError, "#{likeable} is not likeable!"  unless likeable.respond_to?(:is_likeable?) && likeable.is_likeable?
         Socialization.like_model.like!(self, likeable)
       end
