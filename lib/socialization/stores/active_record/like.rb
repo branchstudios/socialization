@@ -19,7 +19,7 @@ module Socialization
       }
 
       class << self
-        def like!(liker, likeable)
+        def like!(liker, likeable, opts = {})
           unless likes?(liker, likeable)
             self.create! do |like|
               like.liker = liker
